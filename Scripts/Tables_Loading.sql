@@ -4,7 +4,7 @@ Bulk loading source data into bronze layer tables
 ------------------------------------------------------
 
 This script defines a stored procedure 'bronze.load_bronze' that can be executed to bulk load the source data into the bronze layer data warehouse tables.
-Each table is first truncated before the source data is loaded into the now emptied table, with the stored procedure tracking the time spent loading data into each table.
+Each table is first truncated before the source data is loaded into the now emptied table, with the stored procedure tracking the time spent loading data into each table as well as the total execution time.
 
 WARNING:
 
@@ -20,7 +20,9 @@ GO
 
 CREATE OR ALTER PROCEDURE bronze.load_bronze AS
 BEGIN
+	DECLARE @overall_start_time DATETIME, @overall_end_time DATETIME;
 	DECLARE @start_time DATETIME, @end_time DATETIME;
+
 	BEGIN TRY
 		PRINT '--------------------------';
 		PRINT 'Loading Bronze Layer';
@@ -30,6 +32,7 @@ BEGIN
 		PRINT 'Loading CRM Tables';
 		PRINT '--------------------------';
 
+		SET @overall_start_time = GETDATE();
 		SET @start_time = GETDATE();
 		PRINT '>> Truncating Table: bronze.crm_cust_info'
 		TRUNCATE TABLE bronze.crm_cust_info;
@@ -139,6 +142,8 @@ BEGIN
 		PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
 		PRINT '-----------------------------------------';
 
+		SET @overall_end_time = GETDATE();
+		PRINT '>> Total Load Duration: ' + CAST(DATEDIFF(second, @overall_start_time, @overall_end_time) AS NVARCHAR) + ' seconds';
 
 	END TRY
 
