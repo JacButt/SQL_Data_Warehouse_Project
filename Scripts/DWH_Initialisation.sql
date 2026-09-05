@@ -9,7 +9,7 @@ After this, the script creates three schemas inside the database, titled 'bronze
 
 WARNING:
 
-	Running this script will drop the entirety of 'ProjectDataWarehouse' if it alrwady exists.
+	Running this script will drop the entirety of 'ProjectDataWarehouse' if it already exists.
 	Take caution when executing and ensure that any existing data is properly backed up beforehand.
 
 */
