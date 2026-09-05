@@ -11,6 +11,7 @@ WARNING:
 
 	This script drops all data from the tables ('bronze.crm_cust_info', 'bronze.crm_prd_info', 'bronze.crm_sales_details', 
 	'bronze.erp_CUST_AZ12', 'bronze.erp_CUST_AZ12', 'bronze.erp_PX_CAT_G1V2'). Take caution to ensure any relevant data is backed up before executing.
+	Please ensure the data warehouse has been initialised before running this script.
 
 */
 
