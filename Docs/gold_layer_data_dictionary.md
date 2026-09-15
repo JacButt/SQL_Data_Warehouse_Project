@@ -1,4 +1,4 @@
-### Data Dictionary for the gold layer
+# Data Dictionary for the gold layer
 
 ## Overview
 
@@ -6,7 +6,7 @@ The gold layer forms the business level data representation, structured to suppo
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
-# 1. gold.dim_customers
+### 1. gold.dim_customers
 
 - **Purpose**: Stores all relevant customer details from the database, organised in one table.
 - **Columns**:
@@ -27,7 +27,7 @@ The gold layer forms the business level data representation, structured to suppo
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
-# 2. gold.dim_products
+### 2. gold.dim_products
 
 - **Purpose**: Stores all relevant product details from the database, organised in one table with only up-to-date information included.
 - **Columns**:
@@ -49,7 +49,7 @@ The gold layer forms the business level data representation, structured to suppo
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
-# 3. gold.fact_sales
+### 3. gold.fact_sales
 
 - **Purpose**: Stores records of each sales interaction, with transactional data.
 - **Columns**:
