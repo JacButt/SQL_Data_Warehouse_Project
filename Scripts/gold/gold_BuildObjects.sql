@@ -1,4 +1,24 @@
 
+/*
+
+-----------------------------------------------------------------------------------
+DDL Script: create gold layer objects
+-----------------------------------------------------------------------------------
+
+This script is used to create view objects inside the gold layer of the data warehouse.
+The views are arranged in a star schema, with dimension tables customers and products connected to the fact table sales.
+
+Each view combines data from tables in the silver layer and performs transformations in order to provide clean datasets enriched with all the data needed
+for business operations.
+
+These views can be queried directly and are intended for the purposes of analytics and reporting.
+
+*/
+
+
+
+USE ProjectDataWarehouse;
+GO
 -------------------------------------------------
 -- Creating dimension customers.
 -- Using silver layer tables 'silver.crm_cst_info', 
@@ -43,7 +63,7 @@ SELECT
 	pn.cat_id AS category_id,
 	pc.cat AS category,
 	pc.subcat AS sub_category,
-	pc.maintenance,
+	pc.maintenance AS maintenance_required,
 	pn.prd_line AS product_line,
 	pn.prd_cost AS cost,
 	pn.prd_start_dt AS start_date	
